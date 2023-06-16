@@ -1,6 +1,9 @@
 import { ApolloServer } from "apollo-server";
+import { connectMongoDb } from "./database/mongodb";
 
-function start({ typeDefs, resolvers }) {
+async function start({ typeDefs, resolvers }) {
+	await connectMongoDb();
+
 	const server = new ApolloServer({ typeDefs, resolvers });
 	server
 		.listen()
