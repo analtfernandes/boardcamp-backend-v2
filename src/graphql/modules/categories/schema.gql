@@ -1,0 +1,12 @@
+type Category {
+	_id: ID!
+	name: String!
+}
+
+input CategoryInput {
+	name: String!
+}
+
+type Mutation {
+	saveCategory(data: CategoryInput!): Category!
+}
