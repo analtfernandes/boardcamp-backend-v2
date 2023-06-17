@@ -1,6 +1,9 @@
 import Category from "../../../models/Category";
 
 export default {
+	Query: {
+		categories: async () => await Category.find({}),
+	},
 	Mutation: {
 		saveCategory: async (_, { data }) => {
 			return await Category.findOneAndUpdate(

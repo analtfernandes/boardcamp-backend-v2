@@ -7,6 +7,10 @@ input CategoryInput {
 	name: String!
 }
 
+type Query {
+	categories: [Category!]!
+}
+
 type Mutation {
 	saveCategory(data: CategoryInput!): Category!
 }
