@@ -1,0 +1,20 @@
+type Game {
+	_id: ID!
+	name: String!
+	image: String!
+	stockTotal: Int!
+	category: Category!
+	pricePerDay: Int!
+}
+
+input GameInput {
+	name: String!
+	image: String!
+	stockTotal: Int!
+	category: ID!
+	pricePerDay: Int!
+}
+
+type Mutation {
+	createGame(data: GameInput!): Game!
+}
