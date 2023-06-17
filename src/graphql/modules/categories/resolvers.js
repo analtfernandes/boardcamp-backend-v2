@@ -14,5 +14,8 @@ export default {
 				{ upsert: true, new: true }
 			);
 		},
+		deleteCategory: async (_, { id }) => {
+			return !!(await Category.findByIdAndDelete(id));
+		},
 	},
 };
