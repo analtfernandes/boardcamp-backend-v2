@@ -10,6 +10,9 @@ export default {
 	},
 	Mutation: {
 		createGame: (_, { data }) => Game.create(data),
+		updateGame: async (_, { id, data }) => {
+			return await Game.findByIdAndUpdate(id, data, { new: true });
+		},
 		deleteGame: async (_, { id }) => !!(await Game.findByIdAndDelete(id)),
 	},
 };

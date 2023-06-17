@@ -21,5 +21,6 @@ type Query {
 
 type Mutation {
 	createGame(data: GameInput!): Game!
+	updateGame(id: ID!, data: GameInput!): Game!
 	deleteGame(id: ID!): Boolean!
 }
