@@ -15,6 +15,10 @@ input GameInput {
 	pricePerDay: Int!
 }
 
+type Query {
+	games: [Game!]!
+}
+
 type Mutation {
 	createGame(data: GameInput!): Game!
 }
