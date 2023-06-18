@@ -22,4 +22,5 @@ type Query {
 
 type Mutation {
 	createRental(data: RentalInput): Rental
+	returnRental(id: ID!): Rental
 }

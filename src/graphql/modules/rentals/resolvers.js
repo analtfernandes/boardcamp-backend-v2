@@ -23,5 +23,27 @@ export default {
 
 			return await Rental.create(newData);
 		},
+		returnRental: async (_, { id }) => {
+			const rental = await Rental.findById(id);
+			if (!rental || rental?.returnDate) return null;
+
+			const day_ms = 86400000;
+
+			const rentDateTimestamp = +new Date(`${rental.rentDate}`);
+			const returnDateTimestamp =
+				rentDateTimestamp + day_ms * rental.daysRented;
+			const todayTimestamp = Date.now();
+
+			const delayTimestamp = Math.round(
+				(todayTimestamp - returnDateTimestamp) / (day_ms * 1)
+			);
+
+			const delayFee =
+				delayTimestamp > 0 ? delayTimestamp * rental.originalPrice : 0;
+
+			const data = { returnDate: Date.now(), delayFee };
+
+			return await Rental.findByIdAndUpdate(id, data, { new: true });
+		},
 	},
 };
