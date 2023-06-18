@@ -10,5 +10,8 @@ export default {
 		updateCustomer: async (_, { id, data }) => {
 			return await Customer.findByIdAndUpdate(id, data, { new: true });
 		},
+		deleteCustomer: async (_, { id }) => {
+			return !!(await Customer.findByIdAndDelete(id));
+		},
 	},
 };
