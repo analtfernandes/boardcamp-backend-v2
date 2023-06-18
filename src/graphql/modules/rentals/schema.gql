@@ -19,3 +19,7 @@ type Query {
 	rentals: [Rental!]!
 	rental(id: ID!): Rental
 }
+
+type Mutation {
+	createRental(data: RentalInput): Rental
+}

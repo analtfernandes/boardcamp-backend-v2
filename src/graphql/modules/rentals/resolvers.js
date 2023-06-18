@@ -11,4 +11,17 @@ export default {
 		rentals: async () => await Rental.find({}),
 		rental: async (_, { id }) => await Rental.findById(id),
 	},
+	Mutation: {
+		createRental: async (_, { data }) => {
+			const game = await Game.findById(data.game);
+			if (!game) return null;
+
+			const newData = {
+				...data,
+				originalPrice: game.pricePerDay * data.daysRented,
+			};
+
+			return await Rental.create(newData);
+		},
+	},
 };
