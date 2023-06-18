@@ -45,5 +45,11 @@ export default {
 
 			return await Rental.findByIdAndUpdate(id, data, { new: true });
 		},
+		deleteRental: async (_, { id }) => {
+			const rental = await Rental.findById(id);
+			if (!rental?.returnDate) return false;
+
+			return !!(await Rental.findByIdAndDelete(id));
+		},
 	},
 };
