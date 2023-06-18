@@ -1,0 +1,20 @@
+type Rental {
+	_id: ID!
+	rentDate: String!
+	returnDate: String
+	daysRented: Int!
+	originalPrice: Int!
+	delayFee: Int
+	customer: Customer!
+	game: Game!
+}
+
+input RentalInput {
+	daysRented: Int!
+	customer: ID!
+	game: ID!
+}
+
+type Query {
+	rentals: [Rental!]!
+}
