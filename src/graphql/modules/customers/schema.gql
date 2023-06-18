@@ -1,0 +1,18 @@
+type Customer {
+	_id: ID!
+	name: String!
+	phone: String!
+	cpf: String!
+	birthday: String!
+}
+
+input CustomerInput {
+	name: String!
+	phone: String!
+	cpf: String!
+	birthday: String!
+}
+
+type Query {
+	customers: [Customer!]!
+}
