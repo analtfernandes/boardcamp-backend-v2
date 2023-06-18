@@ -9,5 +9,6 @@ export default {
 	},
 	Query: {
 		rentals: async () => await Rental.find({}),
+		rental: async (_, { id }) => await Rental.findById(id),
 	},
 };

@@ -17,4 +17,5 @@ input RentalInput {
 
 type Query {
 	rentals: [Rental!]!
+	rental(id: ID!): Rental
 }
