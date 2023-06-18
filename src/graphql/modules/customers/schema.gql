@@ -15,4 +15,5 @@ input CustomerInput {
 
 type Query {
 	customers: [Customer!]!
+	customer(id: ID!): Customer
 }
