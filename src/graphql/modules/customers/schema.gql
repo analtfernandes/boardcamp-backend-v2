@@ -17,3 +17,7 @@ type Query {
 	customers: [Customer!]!
 	customer(id: ID!): Customer
 }
+
+type Mutation {
+	createCustomer(data: CustomerInput): Customer!
+}
