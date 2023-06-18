@@ -7,5 +7,8 @@ export default {
 	},
 	Mutation: {
 		createCustomer: (_, { data }) => Customer.create(data),
+		updateCustomer: async (_, { id, data }) => {
+			return await Customer.findByIdAndUpdate(id, data, { new: true });
+		},
 	},
 };

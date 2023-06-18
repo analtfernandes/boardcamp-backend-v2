@@ -20,4 +20,5 @@ type Query {
 
 type Mutation {
 	createCustomer(data: CustomerInput): Customer!
+	updateCustomer(id: ID!, data: CustomerInput): Customer!
 }
